@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Upload</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <form>
+        <input type="file" value="" multiple required/>
+        <br />
+        <br />
+        <button type="button">Enviar Arquivo(s)</button>
+    </form>
+
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript"  src="Scripts/upload.js"></script>
+    <script type="text/javascript">
+
+        var upload = new Upload();
+
+        $('input[type=file]').change(upload.change.bind(upload));
+        $('button').click(upload.send.bind(upload));
+
+    </script>
+</body>
+</html>
