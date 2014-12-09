@@ -17,21 +17,20 @@
         $.ajax({
             type: 'POST',
             url: 'excel/upload',
-            contentType: 'multipart/form-data',
             data: toFormData(this.formData),
             success: this.success,
-            error: this.error
+            error: this.error,
+            processData: false,
+            contentType: false
         });
     };
 
     Upload.prototype.success = function (data) {
-        debugger;
         alert('upload realizado com sucesso. \n Verifique os objetos retornados no console.');
         console.log(data);
     };
 
-    Upload.prototype.success = function (xhr, status, error) {
-        debugger;
+    Upload.prototype.error = function (xhr, status, error) {
         alert('Ocorreu um erro. \n Verifique o erro retornado no console.');
         console.log('erro: %s - status: %s', error, status);
     };
